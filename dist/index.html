@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="inpContainer">
+        <input type="text" id="input" placeholder="Enter ingrident">
+        <button class="ingrident" onclick=fetchIngredient()>Search</button>
+    </div>
+
+    <div id="ingContainer"></div>
+
+    <script id="template" type="text/x-handlebars-template">
+        <div class="Container">
+            {{#each data}}
+            <div class="recipe">
+                <a class="title" href={{href}}>{{title}}</a>
+                <img class="thumbnail" onclick=firstIng(this) src={{thumbnail}}>
+                <ul class="ingredients">ingredients
+                    {{#each ingredients}}
+                        <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </div>
+            {{/each}}
+    </div>
+    </script>
+
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="Renderer.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
